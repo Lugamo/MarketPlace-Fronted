@@ -1,4 +1,5 @@
 import queryString from 'query-string'
+import serverUrl from '../../utils/serverUrl'
 import {
   SEARCH_PRODUCTS_REQUEST,
   SEARCH_PRODUCTS_SUCCESS,
@@ -19,7 +20,7 @@ function searchProducts(productName) {
     dispatch({ type: SEARCH_PRODUCTS_REQUEST });
 
     return new Promise((resolve, reject) => {
-      fetch(`http://localhost:3001/product?name=${productName}&page=1`, {
+      fetch(`${serverUrl}/product?name=${productName}&page=1`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -49,7 +50,7 @@ function categoryProducts(categoryName) {
     dispatch({ type: CATEGORY_PRODUCTS_REQUEST });
 
     return new Promise((resolve, reject) => {
-      fetch(`http://localhost:3001/product?category=${categoryName.toLowerCase()}&page=1`, {
+      fetch(`${serverUrl}/product?category=${categoryName.toLowerCase()}&page=1`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -85,7 +86,7 @@ function pageChangeProducts(newPage) {
     })
 
     return new Promise((resolve, reject) => {
-      fetch(`http://localhost:3001/product?${query}`, {
+      fetch(`${serverUrl}/product?${query}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -114,7 +115,7 @@ function getDetailedProduct(productId) {
     dispatch({ type: GET_DETAILED_PRODUCT_REQUEST });
 
     return new Promise((resolve, reject) => {
-      fetch(`http://localhost:3001/product/${productId}`, {
+      fetch(`${serverUrl}/product/${productId}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'

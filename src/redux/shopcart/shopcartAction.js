@@ -1,3 +1,4 @@
+import serverUrl from '../../utils/serverUrl'
 import {
   ADD_PRODUCT_REQUEST,
   ADD_PRODUCT_SUCCESS,
@@ -16,7 +17,7 @@ function addProduct(productId) {
     dispatch({ type: ADD_PRODUCT_REQUEST });
 
     return new Promise((resolve, reject) => {
-      fetch(`http://localhost:3001/user/shopcart/add/${productId}`, {
+      fetch(`${serverUrl}/user/shopcart/add/${productId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -45,7 +46,7 @@ function removeProduct(productId) {
     dispatch({ type: REMOVE_PRODUCT_REQUEST });
 
     return new Promise((resolve, reject) => {
-      fetch(`http://localhost:3001/user/shopcart/remove/${productId}`, {
+      fetch(`${serverUrl}/user/shopcart/remove/${productId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -75,7 +76,7 @@ function getShopcart() {
     dispatch({ type: GET_PRODUCTS_REQUEST });
 
     return new Promise((resolve, reject) => {
-      fetch('http://localhost:3001/user/shopcart', {
+      fetch(`${serverUrl}/user/shopcart`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',

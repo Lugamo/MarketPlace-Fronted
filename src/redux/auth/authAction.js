@@ -1,3 +1,4 @@
+import serverUrl from '../../utils/serverUrl'
 import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
@@ -9,7 +10,7 @@ function login(email, password) {
     dispatch({ type: LOGIN_REQUEST });
 
     return new Promise((resolve, reject) => {
-      fetch('http://localhost:3001/auth/login', {
+      fetch(`${serverUrl}/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
